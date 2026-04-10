@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module that defines a Rectangle class with customizable symbols."""
+"""Module that defines a Rectangle class with a static comparison method."""
 
 
 class Rectangle:
@@ -56,8 +56,6 @@ class Rectangle:
         """Return string representation using print_symbol."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        
-        # We use str() here because print_symbol could be a list or other type
         symbol = str(self.print_symbol)
         rect_str = []
         for i in range(self.__height):
@@ -72,3 +70,14 @@ class Rectangle:
         """Print message and decrement count on deletion."""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """Return the bigger rectangle based on area."""
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        return rect_2
