@@ -25,6 +25,11 @@ Test present: check inherits from list
     >>> isinstance(my_list, list)
     True
 
+Test present: check __str__
+    >>> my_list = MyList([1, 2, 3])
+    >>> print(my_list)
+    [1, 2, 3]
+
 Test present: check print_sorted() with empty list
     >>> empty_list = MyList()
     >>> empty_list.print_sorted()
