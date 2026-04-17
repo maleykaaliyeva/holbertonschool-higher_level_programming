@@ -1,20 +1,42 @@
 The ``BaseGeometry`` class
 ==========================
 
-Import the class:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
     >>> bg = BaseGeometry()
 
-Validating an integer:
+Valid integer:
     >>> bg.integer_validator("my_int", 12)
-    >>> bg.integer_validator("width", 89)
 
-Type error (not an integer):
+Type errors (not integers):
     >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
     TypeError: name must be an integer
 
-Value error (less than or equal to 0):
+    >>> bg.integer_validator("age", 13.5)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", [3])
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", (4,))
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", True)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Value errors (<= 0):
     >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
     ValueError: age must be greater than 0
@@ -23,7 +45,7 @@ Value error (less than or equal to 0):
     Traceback (most recent call last):
     ValueError: distance must be greater than 0
 
-Other types:
-    >>> bg.integer_validator("is_true", True)
+Area method:
+    >>> bg.area()
     Traceback (most recent call last):
-    TypeError: is_true must be an integer
+    Exception: area() is not implemented
