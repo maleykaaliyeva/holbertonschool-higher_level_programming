@@ -21,3 +21,16 @@ The sorted list:
 The original list is unchanged:
     >>> print(my_list)
     [1, 4, 2, 3, 5]
+
+Case: empty list
+    >>> my_list2 = MyList()
+    >>> my_list2.print_sorted()
+    []
+
+Case: list with negative numbers
+    >>> my_list3 = MyList()
+    >>> my_list3.append(-1)
+    >>> my_list3.append(-5)
+    >>> my_list3.append(10)
+    >>> my_list3.print_sorted()
+    [-5, -1, 10]
